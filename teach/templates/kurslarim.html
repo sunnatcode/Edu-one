@@ -1,0 +1,118 @@
+{% extends 'profile.html' %}
+{% block content %}
+{% load static %}
+{% if messages %}
+<div>
+    <ul class="messages">
+        {% for message in messages %}
+        <div{% if message.tags %}
+            class="alert alert-{{ message.tags }} alert-dismissible fade show" {% endif %}
+            role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+        </div>
+        {% endfor %}
+
+    </ul>
+</div>
+{% endif %}
+
+
+
+<div>
+    <h6>Yuklangan kurslar</h6>
+    <div class="d-flex">
+        <div class="upload">
+            <div class="text-center">
+    
+                <div class="">
+                    <a class="plus text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        +
+                      </a>
+                </div>
+                <div class="text-primary mt-3">
+                    <h5>Kurs yuklash</h5>
+                </div>
+            </div>
+        </div>
+
+
+        {% for course in courses %}
+        <a class="ready_courses" href="{% url 'teach:course_detail' course.pk %}">
+            <img src="{{ course.image.url }}"  alt="">   
+
+            <div class="course_text">
+                    {{course.name}}
+            </div>
+            <hr>
+            <div class="course_text">
+                {{course.about}}
+            </div>
+        </a>
+        {% endfor %}
+
+        
+        
+
+    </div>
+    
+</div>
+
+
+{{content}}
+
+
+  
+  <div class="offcanvas offcanvas-start" style="width: 100%;" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h6 class="offcanvas-title" id="offcanvasExampleLabel">Avval kurs malumotlari songra kurs videolari yuklanadi. Hozir
+          kurs malumotlarini toldiring
+      </h6>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container">
+          <form method="post" action="{% url 'teach:kurslarim' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+
+                  <div class="col-6">
+                      <div class="input"> 
+                          <p>Kurs nomi</p>
+                          <input type="text" name="name" >
+                        </div>
+                        
+                        <div class="input mt-4">
+                            <p>Kategoriya</p>
+                            <select name='category' id="select">
+                                {% if categoryes %}
+                                {% for category in categoryes %}
+                                <option  value="{{ category.code }}">{{ category.name }}</option>
+                                {% endfor %}
+                                {% endif %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="file">
+                            <p>Kurs rasmi</p>
+                            <input type="file" name='image'>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p>Kurs haqida</p>
+                            <textarea name="about" id="select" cols="" rows="10"></textarea>
+                        </div>
+                        <div class="text-end mt-3 me-5">
+                            <button class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

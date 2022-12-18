@@ -1,0 +1,57 @@
+{% extends 'course_video.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="d-flex ">
+
+    <div>
+        <video class="embed-responsive" style="outline: none;
+    width: 775px;
+    margin-left: 25px;
+    height: 344px;
+     object-fit: fill;
+    border-radius: 14px;" controls autoplay>
+            <source src="{{video.video.url}}" type="video/mp4">
+        </video>
+        
+        <div class="ms-4 mt-4" style="width: 775px;">
+        
+            <h5>{{video.name}}</h5>
+            <hr>
+            <h6>{{video.about}}</h6>
+        </div>
+    </div>
+    <div >
+
+        {% for Video in Videos %}
+    <a href="{% url 'main:videoss' Video.pk %}" class="text-decoration-none text-dark">
+
+        <div class="d-flex mb-2">
+            
+            <video class="  " style="outline: none;
+    width: 200px;
+    height: 141px;
+    margin-left: 25px;
+    object-fit: fill;
+    border-radius: 14px;"  >
+            <source src="{{Video.video.url}}" type="video/mp4">
+        </video>
+        <div class="ms-2">
+            
+            <p>{{ Video.name }}</p>
+            <hr>
+        </div>
+        
+    </div>
+    
+</a>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

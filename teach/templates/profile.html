@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
+    <link rel="stylesheet" href="{% static 'css/video_course.css' %}">
+          <title>Speaker</title>
+</head>
+<body>
+<nav class="container-fluid mt-3 d-flex ">
+    
+    <a href="{% url 'teach:profile' %}" class="text-decoration-none ms-4"><h1>Sa<span class="text-primary">wa</span></h1></a>
+    <a href="{% url 'auth:logout' %}" style="text-decoration: none; margin-left: auto;" ><button class="btn btn-danger">Log out</button></a>
+</nav>
+<hr>
+<main class="container-fluid d-flex">
+    <section id='section-right' class="border-end ms-4">
+        <a href="#" class="text-decoration-none"><h4 class="text-secondary mt-3">Statistika</h3></a>
+        <a href="#" class="text-decoration-none"><h4 class="text-secondary mt-3">Moliya</h3></a>
+        <a href="{% url 'teach:kurslarim' %}" class="text-decoration-none"><h4 class="text-secondary mt-3">Kurslarim</h3></a>
+        <a href="#" class="text-decoration-none"><h4 class="text-secondary mt-3">Profil</h3></a>
+        <a href="#" class="text-decoration-none"><h4 class="text-secondary mt-3">Malumotlar</h3></a>
+
+
+            
+    </section>
+    <section id='section-left'>
+        {% block content %}
+        
+        {% endblock %}
+        
+    </section>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

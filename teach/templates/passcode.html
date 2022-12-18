@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-4 ">
+            <div class="card">
+                <div class="card-header text-center">
+                    <p>Kirish uchun, faqat teacherlar biladgan parolni kirgaziwingiz kerak</p>
+                </div>
+                <form action="{% url 'teach:passcode' %}" method="post">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <input type="password" style="border-radius: 9px; 
+                        background-color: whitesmoke;
+                        width: 100%;
+                        " name="passcode">
+                    </div>
+                    
+                    <div class="card-footer text-end">
+                        <a href="{% url 'main:main' %}"></a><button class="btn btn-primary" type="button">Back</button>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

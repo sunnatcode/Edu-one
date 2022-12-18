@@ -1,0 +1,31 @@
+main #section-left .video_course .video{
+    background: aqua;
+    width: 193px;
+    height: 66px;
+    border-radius: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body input{
+    border: none;
+    background: whitesmoke;
+    width: 90%;
+    height: 63px;
+    border-radius: 16px;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+
+.file input[name]{
+    padding-top: 25px;
+    font-size: 15px!important;
+
+}
+
+::-webkit-file-upload-button {
+    display: none;
+
+  }

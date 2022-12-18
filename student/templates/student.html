@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<main>
+    <section id="section1">
+        <div class="w-100 text-center mt-5">
+            <h1 class="text-primary display-1 fw-bold">Boshlash uchun <br> ro'yhattan o'ting</h1>
+            <h3 class="fw-bold"></h3>
+        </div>
+    </section>
+</main>
+
+<div class=" text-center mt-4">
+    {% if user.is_authenticated %}
+        <a href="{% url 'auth:logout' %}"><button class="btn btn-success px-4 py-2">Log out</button></a>    
+    {% else %}
+        <a href="{% url 'auth:student_register' %}"><button class="btn btn-primary px-4 py-2">Register</button></a>
+        <a href="{% url 'auth:student_login' %}"><button class="btn btn-success px-4 py-2">Login</button></a>
+    {% endif %}
+</div>
+
+{% endblock %}

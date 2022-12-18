@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    
+<div class="w-100 text-center mt-5">
+    <h1>Sa<span class="text-primary">wa</span> </h1>
+    <form action="{% url 'auth:student_register' %}" method="post">
+        {% csrf_token %}
+
+        <div class="mb-2 mt-5">
+            <input name='number' type="text" value="+998" style="    border: 0;
+            background: whitesmoke;
+            border-radius: 30px;
+            width: 348px;
+            height: 62px;
+            padding-left: 25px;
+            font-size: 20px;
+            font-weight: 200;" placeholder="+998908085480">
+        </div>
+        <div class="mb-4 mt-4">
+            <input name='username' type="text"  style="    border: 0;
+            background: whitesmoke;
+            border-radius: 30px;
+            width: 348px;
+            height: 62px;
+            padding-left: 25px;
+            font-size: 20px;
+            font-weight: 200;" placeholder="username">
+        </div>
+        <div>
+            <input name="password" type="password" style="    border: 0;
+            background: whitesmoke;
+            border-radius: 30px;
+            width: 348px;
+            height: 62px;
+            padding-left: 25px;
+            font-size: 20px;
+            font-weight: 200;" placeholder="password">
+        </div>
+        <div class="mt-4" style="margin-left: 233px;">
+            <a ><button class="btn btn-primary px-4 py-2">Register</button></a>
+        </div>
+    </form>
+</div>
+{% endblock %}

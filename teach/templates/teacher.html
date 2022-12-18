@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="w-100 text-center mt-5">
+
+    <a href="{% url 'auth:teach_register' %}"><button  type="button" style="width: 120px; height: 40px;" class="btn btn-primary">Register</button></a>
+    <a href="{% url 'auth:teach_login' %}"><button type="button" class="btn btn-success" style="width: 120px; height: 40px;">Login</button></a>
+    
+</div>
+
+
+{% endblock %}

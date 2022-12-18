@@ -1,1 +1,1 @@
-# Edu-one
+# django
